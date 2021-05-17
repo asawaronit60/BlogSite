@@ -67,7 +67,7 @@ app.get(["/", "/page/:page", "/page/:perPage", "/page/:page/:perPage"], auth, fu
   .skip((perPage * currentPage) - perPage)
   .limit(perPage)
   .exec(function(err, foundBlogs) {
-    Blog.count().exec(function(err, count) {
+    Blog.countDocuments().exec(function(err, count) {
       if(err)
         console.log(err);
       else {
